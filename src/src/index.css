@@ -3,3 +3,23 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+
+* {
+  min-height: 0;
+  min-width: 0;
+}
+
+.slickContainer {
+  margin: 0 auto;
+  width: 80%;
+  padding: 4px;
+}
+
+.slickContainer div.slick-initialized div.slick-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.slickContainer .slick-next:before, .slick-prev:before {
+  color: gray;
+}

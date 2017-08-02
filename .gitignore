@@ -1,4 +1,6 @@
 platforms/*
 !platforms/.keep
 node_modules
+src/public/images/slick/*
+!src/public/images/slick/.keep
 
