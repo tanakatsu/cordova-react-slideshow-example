@@ -6,7 +6,8 @@ import { withRouter } from 'react-router-dom'
 class LoginForm extends React.Component {
   constructor(props) {
     super(props)
-    //console.log(props)
+    // console.log(props)
+    // console.log(process.env)
     this.state = { formValid: false }
   }
 

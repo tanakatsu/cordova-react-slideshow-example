@@ -1,6 +1,7 @@
 platforms/*
 !platforms/.keep
 node_modules
-src/public/images/slick/*
-!src/public/images/slick/.keep
+react_app/public/images/slick/*
+!react_app/public/images/slick/.keep
+react_app/.env
 

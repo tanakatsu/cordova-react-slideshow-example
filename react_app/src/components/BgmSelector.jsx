@@ -33,7 +33,7 @@ class BgmSelector extends React.Component {
 
   search(word) {
     // const url = "/api/youtube_search"
-    const url = "https://u4auegv2oe.execute-api.ap-northeast-1.amazonaws.com/public/youtube-search"
+    const url = process.env.REACT_APP_API_URL || "https://react-bgm-slideshow-sample.herokuapp.com/api/youtube_search"
     let formData = new FormData();
     formData.append("q", word)
 

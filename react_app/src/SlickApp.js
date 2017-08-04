@@ -23,6 +23,7 @@ class SlickApp extends Component {
             <Route exact path="/" component={LoginPage} />
             <Route path="/slick" component={SimpleSliderContainer} />
             <Route path="/login" component={LoginPage} />
+            <Route path="*/index.html" component={LoginPage} />
           </Switch>
         </Router>
       </Provider>
