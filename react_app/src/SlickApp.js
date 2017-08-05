@@ -10,7 +10,7 @@ import thunk from 'redux-thunk';
 import rootReducers from './reducers';
 import SimpleSliderContainer from './containers/SimpleSliderContainer';
 import LoginPage from './containers/LoginPage';
-import App from './App'
+import Home from './containers/Home';
 
 let store = createStore(rootReducers, applyMiddleware(thunk));
 
@@ -20,10 +20,10 @@ class SlickApp extends Component {
       <Provider store={store}>
         <Router>
           <Switch>
-            <Route exact path="/" component={LoginPage} />
+            <Route exact path="/" component={Home} />
             <Route path="/slick" component={SimpleSliderContainer} />
             <Route path="/login" component={LoginPage} />
-            <Route path="*/index.html" component={LoginPage} />
+            <Route path="*/index.html" component={Home} />
           </Switch>
         </Router>
       </Provider>

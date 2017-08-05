@@ -22,13 +22,25 @@ export const loadPictures = () => {
     console.log('load pictures..')
     dispatch(showLoading())
 
-    fetch('/images/slick/pictures.json')
+    const root = getState().home.root
+    console.log('root=', root)
+
+    const url = `${root == '/' ? '' : root}/images/slick/pictures.json`
+    fetch(url)
     .then(response => {
       return response.json()
     })
     .then(data => {
       console.log('loaded')
       console.log(data)
+
+      if (root != '/') {
+        data = data.map(file => {
+          return `${root}/${file}`
+        })
+        console.log(data)
+      }
+
       dispatch(hideLoading())
       dispatch(setPictures(data))
     })
@@ -48,5 +60,12 @@ export const login = () => {
 export const logout = () => {
   return {
     type: 'SIGN_OUT'
+  }
+}
+
+export const setRoot = (path) => {
+  return {
+    type: 'SET_ROOT',
+    path: path
   }
 }
