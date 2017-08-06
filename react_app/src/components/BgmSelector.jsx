@@ -34,12 +34,14 @@ class BgmSelector extends React.Component {
   search(word) {
     // const url = "/api/youtube_search"
     const url = process.env.REACT_APP_API_URL || "https://react-bgm-slideshow-sample.herokuapp.com/api/youtube_search"
-    let formData = new FormData();
-    formData.append("q", word)
 
     fetch(url, {
       method: 'POST',
-      body: formData
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({q: word})
     })
     .then(response => response.json())
     .then(data => {
