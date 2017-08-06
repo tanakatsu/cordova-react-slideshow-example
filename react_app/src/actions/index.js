@@ -25,7 +25,7 @@ export const loadPictures = () => {
     const root = getState().home.root
     console.log('root=', root)
 
-    const url = `${root == '/' ? '' : root}/images/slick/pictures.json`
+    const url = `${root === '/' ? '' : root}/images/slick/pictures.json`
     fetch(url)
     .then(response => {
       return response.json()
@@ -34,7 +34,7 @@ export const loadPictures = () => {
       console.log('loaded')
       console.log(data)
 
-      if (root != '/') {
+      if (root !== '/') {
         data = data.map(file => {
           return `${root}/${file}`
         })
