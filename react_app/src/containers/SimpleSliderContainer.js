@@ -34,7 +34,7 @@ class SimpleSliderContainer extends React.Component {
     }
 
     return (
-      <div>
+      <div style={{paddingTop: '44px'}}>
         <div>
           {this.props.loading ? <span>Loading...</span> : null}
         </div>

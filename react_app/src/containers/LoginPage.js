@@ -14,7 +14,9 @@ class LoginPage extends React.Component {
 
   render() {
     return (
-      <LoginForm onSignIn={this.props.onSignIn} />
+      <div style={{paddingTop: '44px'}}>
+        <LoginForm onSignIn={this.props.onSignIn} />
+      </div>
     )
   }
 }
