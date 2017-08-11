@@ -26,7 +26,32 @@ export const loadPictures = () => {
     console.log('root=', root)
 
     const url = `${root === '/' ? '' : root}/images/slick/pictures.json`
-    fetch(url)
+
+    // fetch(url)
+    // .then(response => {
+    //   return response.json()
+    // })
+    // .then(data => {
+    //   console.log('loaded')
+    //   console.log(data)
+    //
+    //   if (root !== '/') {
+    //     data = data.map(file => {
+    //       return `${root}/${file}`
+    //     })
+    //     console.log(data)
+    //   }
+    //
+    //   dispatch(hideLoading())
+    //   dispatch(setPictures(data))
+    // })
+    // .catch(err => {
+    //   console.error(err)
+    //   dispatch(hideLoading())
+    // })
+    //
+
+    fetchLocal(url)
     .then(response => {
       return response.json()
     })
@@ -68,4 +93,20 @@ export const setRoot = (path) => {
     type: 'SET_ROOT',
     path: path
   }
+}
+
+// Especially for Android
+// https://github.com/github/fetch/pull/92#issuecomment-140665932
+const fetchLocal = (url) => {
+  return new Promise((resolve, reject) => {
+    var xhr = new XMLHttpRequest
+    xhr.onload = () => {
+      resolve(new Response(xhr.responseText, {status: xhr.status}))
+    }
+    xhr.onerror = () => {
+      reject(new TypeError('Local request failed'))
+    }
+    xhr.open('GET', url)
+    xhr.send(null)
+  })
 }
