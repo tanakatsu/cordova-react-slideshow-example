@@ -51,6 +51,7 @@ export const loadPictures = () => {
     // })
     //
 
+    // https://github.com/github/fetch/pull/92#issuecomment-140665932
     fetchLocal(url)
     .then(response => {
       return response.json()
